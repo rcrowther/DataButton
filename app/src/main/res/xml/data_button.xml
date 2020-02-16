@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<PreferenceScreen
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:key="data_button_screen"
+    android:title="@string/app_name"
+    >
+    <!--android:initialExpandedChildrenCount="3" -->
+    <!-- xmlns:app="http://schemas.android.com/apk/res-auto" -->
+
+
+    <SwitchPreferenceCompat
+        android:key="data_on_sleep"
+        android:title="@string/data_on_sleep_title"
+        android:summary="@string/data_on_sleep_summary"
+        />
+    <!--
+https://developer.android.com/reference/androidx/preference/package-summary
+            settings:controller="com.android.settings.network.telephony.RoamingPreferenceController"/>
+    -->
+
+    <SwitchPreferenceCompat
+        android:key="data_on_timer"
+        android:title="@string/data_on_timer_title"
+        android:summary="@string/data_on_timer_summary"
+        />
+
+    <SwitchPreferenceCompat
+        android:key="show_data_indicator"
+        android:title="@string/show_data_indicator_title"
+        android:summary="@string/show_data_indicator_summary"
+        />
+
+</PreferenceScreen>

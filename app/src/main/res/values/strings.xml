@@ -1,0 +1,9 @@
+<resources>
+    <string name="app_name">Data Button</string>
+    <string name="data_on_sleep_title">Data on sleep</string>
+    <string name="data_on_sleep_summary">Turn data on when sleeping</string>
+    <string name="data_on_timer_title">Data on timer</string>
+    <string name="data_on_timer_summary">Turn data on after a time</string>
+    <string name="show_data_indicator_title">Show data indicator</string>
+    <string name="show_data_indicator_summary">Show an indication that data is flowing</string>
+</resources>
