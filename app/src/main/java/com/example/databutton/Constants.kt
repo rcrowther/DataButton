@@ -7,3 +7,4 @@ const val VERBOSE_NOTIFICATION_CHANNEL_DESCRIPTION =
 @JvmField val NOTIFICATION_TITLE: CharSequence = "WorkRequest Starting"
 const val CHANNEL_ID = "VERBOSE_NOTIFICATION"
 const val NOTIFICATION_ID = 1
+const val LOG_TAG = "DataButton"

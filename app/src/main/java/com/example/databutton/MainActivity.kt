@@ -34,7 +34,7 @@ class MyBroadcastReceiver : BroadcastReceiver() {
 */
 
 //https://code.luasoftware.com/tutorials/android/android-settings-preference-using-preferencefragmentcompat/
-class MainActivity : AppCompatActivity() {
+class MainActivity : AppCompatActivity(), Configuration.Provider {
 
     //class EnableMobileData() {}
 
@@ -44,6 +44,11 @@ class MainActivity : AppCompatActivity() {
     //startService(downloadIntent)
 
 
+    override fun getWorkManagerConfiguration() =
+    Configuration.Builder()
+    .setMinimumLoggingLevel(android.util.Log.DEBUG)
+    .build()
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
@@ -51,21 +56,13 @@ class MainActivity : AppCompatActivity() {
         val appContext = applicationContext
         val switchScheduler = SwitchScheduler(this.getApplication())
 
-        makeStatusNotification("Databutton status","Databutton On", appContext)
+
+
+        //makeStatusNotification("Databutton status","Databutton Create call", appContext)
+        Log.i(LOG_TAG, "Databutton onCreate call")
 
         switchScheduler.applyDataSwitch(true)
 
-        //val uploadWorkRequest = OneTimeWorkRequest.Builder<UploadWorker>()
-        //    .build()
-//LOOOK for notification in the downloaded test file
-        //val uploadWorkRequest = OneTimeWorkRequest.Builder(UploadWorker.class)
-
-       // WorkManager.getInstance(this).enqueue(uploadWorkRequest)
-
-        //with(NotificationManagerCompat.from(this)) {
-            // notificationId is a unique int for each notification that you must define
-         //   notify(4, builder.build())
-        //}
 
         //https://developer.android.com/reference/androidx/preference/PreferenceFragmentCompat
 

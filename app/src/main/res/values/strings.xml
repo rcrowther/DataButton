@@ -6,4 +6,6 @@
     <string name="data_on_timer_summary">Turn data on after a time</string>
     <string name="show_data_indicator_title">Show data indicator</string>
     <string name="show_data_indicator_summary">Show an indication that data is flowing</string>
+    <string name="data_on_notify_title">Data Notify</string>
+    <string name="data_on_notify_summary">Notify when data is flowing</string>
 </resources>

@@ -31,4 +31,9 @@ https://developer.android.com/reference/androidx/preference/package-summary
         android:summary="@string/show_data_indicator_summary"
         />
 
+    <SwitchPreferenceCompat
+        android:key="data_notify"
+        android:title="@string/data_on_notify_title"
+        android:summary="@string/data_on_notify_summary"
+        />
 </PreferenceScreen>
