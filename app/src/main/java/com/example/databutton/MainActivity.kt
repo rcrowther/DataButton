@@ -1,17 +1,15 @@
 package com.example.databutton
 
 
-import android.content.BroadcastReceiver
-import android.content.Context
-import android.content.Intent
-import androidx.appcompat.app.AppCompatActivity
-import android.os.Bundle
-//import android.provider.Settings
-import android.util.Log
-import android.widget.Toast
-import androidx.preference.PreferenceFragmentCompat
-import androidx.work.*
 
+//import android.provider.Settings
+
+import android.content.Context
+import android.os.Bundle
+import android.util.Log
+import androidx.appcompat.app.AppCompatActivity
+import androidx.preference.PreferenceFragmentCompat
+import androidx.work.Configuration
 
 
 private const val TAG = "MyBroadcastReceiver"
@@ -36,6 +34,10 @@ class MyBroadcastReceiver : BroadcastReceiver() {
 //https://code.luasoftware.com/tutorials/android/android-settings-preference-using-preferencefragmentcompat/
 class MainActivity : AppCompatActivity(), Configuration.Provider {
 
+    fun appContext(): Context {
+        return applicationContext
+    }
+
     //class EnableMobileData() {}
 
     //val enableMobileDataIntent = Intent(this, EnableMobileData::class.java).apply {
@@ -53,7 +55,6 @@ class MainActivity : AppCompatActivity(), Configuration.Provider {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
         //        setSupportActionBar(toolbar)
-        val appContext = applicationContext
         //val switchScheduler = SwitchScheduler(this.getApplication())
 
 
@@ -63,7 +64,7 @@ class MainActivity : AppCompatActivity(), Configuration.Provider {
 
         //switchScheduler.applyDataSwitch(true)
 
-       val alarm =  TryAlarmSwitch(appContext)
+       val alarm =  TryAlarmSwitch(appContext())
        alarm.setSwitch(true)
 
         //https://developer.android.com/reference/androidx/preference/PreferenceFragmentCompat
@@ -80,4 +81,5 @@ class MainActivity : AppCompatActivity(), Configuration.Provider {
             setPreferencesFromResource(R.xml.data_button, rootKey)
         }
     }
+
 }
