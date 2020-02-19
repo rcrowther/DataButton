@@ -54,15 +54,17 @@ class MainActivity : AppCompatActivity(), Configuration.Provider {
         setContentView(R.layout.activity_main)
         //        setSupportActionBar(toolbar)
         val appContext = applicationContext
-        val switchScheduler = SwitchScheduler(this.getApplication())
+        //val switchScheduler = SwitchScheduler(this.getApplication())
 
 
 
         //makeStatusNotification("Databutton status","Databutton Create call", appContext)
         Log.i(LOG_TAG, "Databutton onCreate call")
 
-        switchScheduler.applyDataSwitch(true)
+        //switchScheduler.applyDataSwitch(true)
 
+       val alarm =  TryAlarmSwitch(appContext)
+       alarm.setSwitch(true)
 
         //https://developer.android.com/reference/androidx/preference/PreferenceFragmentCompat
 

@@ -3,7 +3,10 @@ package com.example.databutton
 import android.app.NotificationChannel
 import android.app.NotificationManager
 import android.content.Context
+import android.hardware.display.DisplayManager
 import android.os.Build
+import android.os.PowerManager
+import android.view.Display
 import androidx.core.app.NotificationCompat
 import androidx.core.app.NotificationManagerCompat
 
@@ -47,4 +50,22 @@ fun makeStatusNotification(title: CharSequence, message: String, context: Contex
 
     // Show the notification
     NotificationManagerCompat.from(context).notify(NOTIFICATION_ID, builder.build())
+}
+
+//https://stackoverflow.com/questions/60216558/detect-always-on-display-when-trying-to-determine-if-the-screen-is-off/60218008#60218008
+fun isScreenOn(appContext: Context): Boolean {
+    return if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.KITKAT_WATCH) {
+        val dm =
+            appContext.getSystemService(Context.DISPLAY_SERVICE) as DisplayManager?
+        for (display in dm!!.displays) {
+            if (display.state == Display.STATE_ON) {
+                return true
+            }
+        }
+        false
+    } else {
+        val pm =
+            appContext.getSystemService(Context.POWER_SERVICE) as PowerManager?
+        pm!!.isInteractive
+    }
 }
