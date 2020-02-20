@@ -14,9 +14,8 @@ class SwitchBroadcastReciever () : BroadcastReceiver() {
     override fun onReceive(appContext: Context, intent: Intent?) {
         //makeStatusNotification("Reciever Messgae", "onReceive-sleep", appContext)
 
-        val pref: SharedPreferences =
-            appContext.getSharedPreferences("PREF_NAME", Context.MODE_PRIVATE)
-        pref.getString("NAME", "Android")
+        val s = Switch()
+        s.setData(appContext, true)
 
         try {
             Thread.sleep(SLEEP_DELAY_TIME_MILLIS, 0)
@@ -26,6 +25,6 @@ class SwitchBroadcastReciever () : BroadcastReceiver() {
 
         val isScrrenOn = isScreenOn(appContext)
 
-        makeStatusNotification("Reciever Messgae", "onReceive-unsleep \n screen on: $isScrrenOn", appContext)
+        //makeStatusNotification("Reciever Messgae", "onReceive-unsleep \n screen on: $isScrrenOn", appContext)
     }
 }
